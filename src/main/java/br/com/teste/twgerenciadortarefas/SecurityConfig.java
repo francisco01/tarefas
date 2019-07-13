@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.authenticated()
 					.and().csrf().disable()
 				.formLogin()
-					.loginPage("/login").failureUrl("/login?error=true").defaultSuccessUrl("/tarefas/listar")
+					.loginPage("/login").failureUrl("/login?error=true").defaultSuccessUrl("/")
 					.usernameParameter("email").passwordParameter("senha")
 				.and().logout()
 					.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");

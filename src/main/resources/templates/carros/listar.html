@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Gerenciador  - Lista de Carros</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div th:replace="/fragmentos/fragmentos :: cabecalho" />
+	<div class="container">
+		<h3>Lista de Carros</h3>
+		<a href="/carros/inserir" class="btn btn-success">Cadastrar novo carro</a>
+		<div th:each="carro: ${carros}" style="margin:10px">
+			<div class="card bg-light md-3">
+			<div class="card-header" th:text="${carro.modelo}"></div>
+			<div class="card-header" th:text="${carro.cor}"></div>
+			<div class="card-header" th:text="${carro.status}"></div>
+			</div>
+			
+		
+		</div>
+	
+	</div>
+
+</body>
+</html>

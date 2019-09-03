@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta charset="ISO-8859-1">
+<title>Gerenciador - Aluguel</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div th:replace="/fragmentos/fragmentos :: cabecalho" />
+	<div class="container">
+		<h3>Realizar Aluguel</h3>
+			<h:selectOneMenu value="">
+					<f:selectItem itemValue="1" itemLabel="item 1" />
+				</h:selectOneMenu>
+		<h:panelGrid columns="1" >
+				<h:selectOneMenu value="">
+					<f:selectItem itemValue="1" itemLabel="item 1" />
+				</h:selectOneMenu>
+			</h:panelGrid>
+		<form id="formAluguel" class="form-horizontal"
+			action="/aluguel/inserir" method="post" th:object="${aluguel}">
+			<h:panelGrid columns="1" >
+				<h:selectOneMenu value="">
+					<f:selectItem itemValue="1" itemLabel="item 1" />
+				</h:selectOneMenu>
+			</h:panelGrid>
+			<div class="row">
+				<div class="form-group col-md-6">
+					<label>Clientes</label>
+					<h:outputLabel>Clientes2</h:outputLabel>
+					<h:selectOneMenu id="cliente" value="#{aluguel.cliente}" immediate="true">
+						<f:selectItem itemValue="" itemLabel="Selecione o cliente" />
+						<f:selectItems value="#{aluguel.clientes}" var="c"
+							itemValue="c.id" itemLabel="#{c.nome}" />
+					</h:selectOneMenu>
+
+				</div>
+					<h:outputLabel>Clientes2</h:outputLabel>
+				<h:selectOneMenu value="#{aluguel.cliente}">
+					<f:selectItem itemValue="1" itemLabel="Item 1" />
+					<f:selectItem itemValue="2" itemLabel="Item 2" />
+				</h:selectOneMenu>
+			</div>
+		</form>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Gerencidor - Inclusão de Carro</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+</head >
+<body>
+
+	<div th:replace="/fragmentos/fragmentos :: cabecalho" />
+	<div class="container">
+		<h3>Cadastrar novo Carro</h3>
+		
+		<form id="formCarro" class="form-horizontal" action="/carros/inserir" method="post"
+		th:object="${carro}">
+		
+		<div class="row">
+			<div class="form-group col-md-6">
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('modelo')}">
+				<label th:errors="*{modelo}" class="validation-message"></label>
+			</div>
+				<label>Modelo:</label>
+				<input type="text" class="form-control" th:field="*{modelo}">
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-6">
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('placa')}">
+				<label th:errors="*{placa}" class="validation-message"></label>
+			</div>
+				<label>Placa:</label>
+				<input type="text" class="form-control" th:field="*{placa}">
+			</div>
+		</div>
+		
+		<div>
+		<div class="row">
+			<div class="form-group col-md-6">
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('cor')}">
+				<label th:errors="*{cor}" class="validation-message"></label>
+			</div>
+				<label>Cor:</label>
+				<input type="text" class="form-control" th:field="*{cor}">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="form-group col-md-6">
+				<select form="formCarro" th:field="*{status}">
+					<option th:each="estado: ${T(br.com.teste.twgerenciadortarefas.modelo.Status).values()}"
+							th:value="${estado}"
+							th:text="${estado.estado}">
+					</option>
+				</select>
+			</div>
+		</div>
+				
+		<button type="submit" class="btn btn-primary">Salvar</button>
+		
+		</form>
+		
+	
+	</div>
+
+</body>
+</html>

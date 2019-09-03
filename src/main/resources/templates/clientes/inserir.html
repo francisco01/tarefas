@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Gerencidor - Inclusão de Cliente</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+</head >
+<body>
+
+	<div th:replace="/fragmentos/fragmentos :: cabecalho" />
+	<div class="container">
+		<h3>Cadastrar novo Cliente</h3>
+		
+		<form class="form-horizontal" action="/clientes/inserir" method="post"
+		th:object="${cliente}">
+		
+		<div class="row">
+			<div class="form-group col-md-6">
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}">
+				<label th:errors="*{nome}" class="validation-message"></label>
+			</div>
+				<label>Nome:</label>
+				<input type="text" class="form-control" th:field="*{nome}">
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-6">
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('CPF')}">
+				<label th:errors="*{CPF}" class="validation-message"></label>
+			</div>
+				<label>CPF:</label>
+				<input type="text" class="form-control" th:field="*{CPF}">
+			</div>
+		</div>
+		
+		<div>
+		<div class="row">
+			<div class="form-group col-md-6">
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('endereco.rua')}">
+				<label th:errors="*{endereco.rua}" class="validation-message"></label>
+			</div>
+				<label>Rua:</label>
+				<input type="text" class="form-control" th:field="*{endereco.rua}">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="form-group col-md-6">
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('endereco.bairro')}">
+				<label th:errors="*{endereco.bairro}" class="validation-message"></label>
+			</div>
+				<label>Bairro:</label>
+				<input type="text" class="form-control" th:field="*{endereco.bairro}">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="form-group col-md-6">
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('endereco.numero')}">
+				<label th:errors="*{endereco.numero}" class="validation-message"></label>
+			</div>
+				<label>Numero:</label>
+				<input type="text" class="form-control" th:field="*{endereco.numero}">
+			</div>
+		</div>
+		</div>
+		
+		<div class="row">
+			<div class="form-group col-md-6">
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('telefone')}">
+				<label th:errors="*{telefone}" class="validation-message"></label>
+			</div>
+				<label>Telefone:</label>
+				<input type="text" class="form-control" th:field="*{telefone}">
+			</div>
+		</div>
+		
+		<button type="submit" class="btn btn-primary">Salvar</button>
+		
+		</form>
+		
+	
+	</div>
+
+</body>
+</html>
